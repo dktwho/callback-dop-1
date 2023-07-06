@@ -45,7 +45,9 @@ export function Todolist(props: PropsType) {
         props.removeTodolist(props.id)
     }
 
-
+    const removeTaskClickHandler = (taskId: string) => {
+        props.removeTask(taskId, props.id )
+    }
     return <div>
         <h3> {props.title}
             <Button name={`remove todolist ${props.id}`} callBack={() => removeTodoListHandler()}/>
@@ -71,10 +73,7 @@ export function Todolist(props: PropsType) {
                     return <li key={t.taskId} className={t.isDone ? "is-done" : ""}>
                         <input type="checkbox" onChange={onChangeHandler} checked={t.isDone}/>
                         <span>{t.title}</span>
-                        <button onClick={() => {
-                            'removeTask'
-                        }}>x
-                        </button>
+                        <Button name={'x'} callBack={() => removeTaskClickHandler(t.taskId)}/>
                     </li>
                 })
             }
