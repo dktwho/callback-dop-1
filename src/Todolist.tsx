@@ -46,8 +46,13 @@ export function Todolist(props: PropsType) {
     }
 
     const removeTaskClickHandler = (taskId: string) => {
-        props.removeTask(taskId, props.id )
+        props.removeTask(taskId, props.id)
     }
+
+    const changeFilterHandler = (value: FilterValuesType) => {
+        props.changeFilter(value, props.id)
+    }
+
     return <div>
         <h3> {props.title}
             <Button name={`remove todolist ${props.id}`} callBack={() => removeTodoListHandler()}/>
@@ -58,7 +63,6 @@ export function Todolist(props: PropsType) {
                    onKeyPress={onKeyPressHandler}
                    className={error ? "error" : ""}
             />
-            {/*<button onClick={() => {'addTask'}}>+</button>*/}
             <Button name={'add'} callBack={addTaskClickHandler}/>
             {error && <div className="error-message">{error}</div>}
         </div>
@@ -79,18 +83,9 @@ export function Todolist(props: PropsType) {
             }
         </ul>
         <div>
-            <button className={props.filter === 'all' ? "active-filter" : ""}
-                    onClick={() => {
-                    }}>All
-            </button>
-            <button className={props.filter === 'active' ? "active-filter" : ""}
-                    onClick={() => {
-                    }}>Active
-            </button>
-            <button className={props.filter === 'completed' ? "active-filter" : ""}
-                    onClick={() => {
-                    }}>Completed
-            </button>
+            <Button name={'all'} callBack={() => changeFilterHandler('all')}/>
+            <Button name={'active'} callBack={() => changeFilterHandler('active')}/>
+            <Button name={'completed'} callBack={() => changeFilterHandler('completed')}/>
         </div>
         <p></p>
         {
