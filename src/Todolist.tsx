@@ -37,18 +37,18 @@ export function Todolist(props: PropsType) {
     }
 
     const addTaskClickHandler = () => {
-        props.addTask(title, props.id )
+        props.addTask(title, props.id)
         setTitle('')
+    }
+
+    const removeTodoListHandler = () => {
+        props.removeTodolist(props.id)
     }
 
 
     return <div>
         <h3> {props.title}
-            <button onClick={() => {
-                'removeTodolist'
-            }}>x
-            </button>
-
+            <Button name={`remove todolist ${props.id}`} callBack={() => removeTodoListHandler()}/>
         </h3>
         <div>
             <input value={title}
@@ -71,20 +71,26 @@ export function Todolist(props: PropsType) {
                     return <li key={t.taskId} className={t.isDone ? "is-done" : ""}>
                         <input type="checkbox" onChange={onChangeHandler} checked={t.isDone}/>
                         <span>{t.title}</span>
-                        <button onClick={() => {'removeTask'}}>x</button>
+                        <button onClick={() => {
+                            'removeTask'
+                        }}>x
+                        </button>
                     </li>
                 })
             }
         </ul>
         <div>
             <button className={props.filter === 'all' ? "active-filter" : ""}
-                    onClick={()=>{}}>All
+                    onClick={() => {
+                    }}>All
             </button>
             <button className={props.filter === 'active' ? "active-filter" : ""}
-                    onClick={()=>{}}>Active
+                    onClick={() => {
+                    }}>Active
             </button>
             <button className={props.filter === 'completed' ? "active-filter" : ""}
-                    onClick={()=>{}}>Completed
+                    onClick={() => {
+                    }}>Completed
             </button>
         </div>
         <p></p>
