@@ -1,5 +1,6 @@
 import React, {ChangeEvent, useState, KeyboardEvent} from 'react';
 import {FilterValuesType, TasksType} from './App';
+import {Button} from "./Button";
 
 
 // export type TaskType = {
@@ -35,6 +36,11 @@ export function Todolist(props: PropsType) {
         }
     }
 
+    const addTaskClickHandler = () => {
+        props.addTask(title, props.id )
+        setTitle('')
+    }
+
 
     return <div>
         <h3> {props.title}
@@ -50,7 +56,8 @@ export function Todolist(props: PropsType) {
                    onKeyPress={onKeyPressHandler}
                    className={error ? "error" : ""}
             />
-            <button onClick={() => {'addTask'}}>+</button>
+            {/*<button onClick={() => {'addTask'}}>+</button>*/}
+            <Button name={'add'} callBack={addTaskClickHandler}/>
             {error && <div className="error-message">{error}</div>}
         </div>
         <ul>
