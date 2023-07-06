@@ -72,14 +72,6 @@ function App() {
                 'Bobby Hardy',
                 'Talha Ferry',
                 'Priscilla Landry',
-                'Olivia-Grace Cain',
-                'Kiaan Wallace',
-                'Wesley Padilla90',
-                'Ella-Grace Wooten91',
-                'Kaif Molloy92',
-                'Kamal Broadhurst93',
-                'Bianca Ferrell94',
-                'Micheal Talbot95',
             ]
         },
         {
@@ -132,9 +124,6 @@ function App() {
                 'Elysha Ray',
                 'Liyana Harris',
                 'Kashif Blackburn',
-                'Atif Zimmerman',
-                'Sila Hartley',
-                'Ralphie Hebert',
             ]
         }
     ])
